@@ -1,32 +1,39 @@
-import { Autocomplete, Group, Burger, rem } from '@mantine/core';
+import { Autocomplete, Group, Burger, rem, Title, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconSearch } from '@tabler/icons-react';
+import { IconSearch, IconInfoSquareRoundedFilled, IconBrandGithub } from '@tabler/icons-react';
 import classes from './Header.module.css';
 
 const links = [
-    { link: '/GitHub', label: 'GitHub' },
-    { link: '/About', label: 'About' },
+    { link: '/about', label: 'About', icon: IconInfoSquareRoundedFilled },
+    { link: 'https://github.com/actusnileh/GeoSiteList', label: 'GitHub', icon: IconBrandGithub },
 ];
 
 export function HeaderSearch() {
     const [opened, { toggle }] = useDisclosure(false);
 
-    const items = links.map((link) => (
-        <a
-            key={link.label}
-            href={link.link}
-            className={classes.link}
-            onClick={(event) => event.preventDefault()}
-        >
-            {link.label}
-        </a>
-    ));
+    const items = links.map((link) => {
+        const IconComponent = link.icon;
+        return (
+            <a
+                key={link.label}
+                href={link.link}
+                className={classes.link}
+                target={link.link == '/about' ? '' : "_blank"}
+            >
+                <Flex align="center" gap={5}>
+                    <IconComponent />
+                    {link.label}
+                </Flex>
+            </a>
+        );
+    });
 
     return (
         <header className={classes.header}>
             <div className={classes.inner}>
                 <Group>
                     <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
+                    <Title order={3}>GeoSiteList</Title>
                 </Group>
 
                 <Group>

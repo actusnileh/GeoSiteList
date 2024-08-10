@@ -1,0 +1,1 @@
+export { CopyPlace } from './CopyPlace';
