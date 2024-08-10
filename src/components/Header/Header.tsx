@@ -33,7 +33,12 @@ export function HeaderSearch() {
             <div className={classes.inner}>
                 <Group>
                     <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
-                    <Title order={3}>GeoSiteList</Title>
+                    <Title
+                        style={{ cursor: 'pointer' }}
+                        order={3}
+                        onClick={() => window.location.href = '/'}>
+                        GeoSiteList
+                    </Title>
                 </Group>
 
                 <Group>
