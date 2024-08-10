@@ -2,7 +2,7 @@ import { HeaderSearch, DataTable } from "../../components";
 import { FetchDomains } from "./api/fetchDomains";
 import { useEffect, useState } from "react";
 import { ApiResponseType } from "./api/apiResponseType";
-import { ModalLoader } from "../../shared/ui/modalLoader";
+import { Container } from "@mantine/core";
 
 export const HomePage = () => {
     const [data, setData] = useState<ApiResponseType | undefined>({ items: [] });
@@ -20,9 +20,9 @@ export const HomePage = () => {
     return (
         <>
             <HeaderSearch />
-            {
-                data && <DataTable data={data} />
-            }
+            <Container fluid>
+                {data && <DataTable data={data} />}
+            </Container>
         </>
     );
 };
