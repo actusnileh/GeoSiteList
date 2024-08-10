@@ -1,10 +1,10 @@
 import { Autocomplete, Group, Burger, rem, Title, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconSearch, IconInfoSquareRoundedFilled, IconBrandGithub } from '@tabler/icons-react';
+import { IconSearch, IconInfoSquareRounded, IconBrandGithub } from '@tabler/icons-react';
 import classes from './Header.module.css';
 
 const links = [
-    { link: '/about', label: 'About', icon: IconInfoSquareRoundedFilled },
+    { link: '/about', label: 'About', icon: IconInfoSquareRounded },
     { link: 'https://github.com/actusnileh/GeoSiteList', label: 'GitHub', icon: IconBrandGithub },
 ];
 
@@ -33,7 +33,12 @@ export function HeaderSearch() {
             <div className={classes.inner}>
                 <Group>
                     <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
-                    <Title order={3}>GeoSiteList</Title>
+                    <Title
+                        style={{ cursor: 'pointer' }}
+                        order={3}
+                        onClick={() => window.location.href = '/'}>
+                        GeoSiteList
+                    </Title>
                 </Group>
 
                 <Group>
