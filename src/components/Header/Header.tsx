@@ -1,10 +1,10 @@
 import { Autocomplete, Group, Burger, rem, Title, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconSearch, IconInfoSquareRoundedFilled, IconBrandGithub } from '@tabler/icons-react';
+import { IconSearch, IconInfoSquareRounded, IconBrandGithub } from '@tabler/icons-react';
 import classes from './Header.module.css';
 
 const links = [
-    { link: '/about', label: 'About', icon: IconInfoSquareRoundedFilled },
+    { link: '/about', label: 'About', icon: IconInfoSquareRounded },
     { link: 'https://github.com/actusnileh/GeoSiteList', label: 'GitHub', icon: IconBrandGithub },
 ];
 
