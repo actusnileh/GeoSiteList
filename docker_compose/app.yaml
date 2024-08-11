@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: GeoSiteListWeb
+    build: ..
+    ports:
+      - "5173:5173"
+    command: pnpm run dev --host
+    volumes:
+      - ..:/code
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge
