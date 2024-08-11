@@ -1,10 +1,10 @@
 services:
-  app:
-    container_name: GeoSiteListWeb
+  dev_app:
+    container_name: GeoSiteList_dev
     build: ..
     ports:
-      - "5173:5173"
-    command: pnpm run dev --host
+      - "5171:5173"
+    command: /bin/sh -c "pnpm run dev --host"
     volumes:
       - ..:/code
     networks:

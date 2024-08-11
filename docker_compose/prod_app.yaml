@@ -1,0 +1,15 @@
+services:
+  prod_app:
+    container_name: GeoSiteList_prod
+    build: ..
+    ports:
+      - "5170:5173"
+    command: /bin/sh -c "pnpm build && pnpm preview --host --port 5173"
+    volumes:
+      - ..:/code
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge

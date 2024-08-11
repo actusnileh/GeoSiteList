@@ -1,14 +1,31 @@
 DC = docker compose
-APP_FILE = docker_compose/app.yaml
+DEV_FILE = docker_compose/dev_app.yaml
+PROD_FILE = docker_compose/prod_app.yaml
 
-.PHONY: app
-app:
-	${DC} -f ${APP_FILE} up --build -d
+.PHONY: dev
+dev:
+	${DC} -f ${DEV_FILE} up --build -d
 
-.PHONY: drop-app
-drop-app:
-	${DC} -f ${APP_FILE} down
+.PHONY: drop-dev
+drop-dev:
+	${DC} -f ${DEV_FILE} down
 
-.PHONY: logs
-logs:
-	${DC} -f ${APP_FILE} logs -f
+.PHONY: prod
+prod:
+	${DC} -f ${PROD_FILE} up --build -d
+
+.PHONY: drop-prod
+drop-prod:
+	${DC} -f ${PROD_FILE} down
+
+.PHONY: logs-prod
+logs-prod:
+	${DC} -f ${PROD_FILE} logs -f
+
+.PHONY: logs-dev
+logs-dev:
+	${DC} -f ${DEV_FILE} logs -f
+
+.PHONY: drop-all
+drop-all:
+	${DC} -f ${DEV_FILE} -f ${PROD_FILE} down

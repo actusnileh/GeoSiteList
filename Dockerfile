@@ -10,6 +10,4 @@ RUN pnpm install
 
 COPY . .
 
-# RUN pnpm build
-
 EXPOSE 5173
