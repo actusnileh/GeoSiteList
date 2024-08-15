@@ -5,7 +5,7 @@ export const AboutPage = () => {
     return (
         <>
             <HeaderSearch />
-            <About/>
+            <About />
             <ScrollToTop />
         </>
     );

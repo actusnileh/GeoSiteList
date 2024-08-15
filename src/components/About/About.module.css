@@ -1,8 +1,11 @@
 .wrapper {
     position: relative;
-    height: 100vh; /* Занимаем всю высоту окна */
+    height: 100vh;
     box-sizing: border-box;
-    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-8));
+    background-color: light-dark(
+        var(--mantine-color-white),
+        var(--mantine-color-dark-8)
+    );
 }
 
 .inner {
@@ -17,9 +20,7 @@
 }
 
 .title {
-    font-family:
-        Greycliff CF,
-        var(--mantine-font-family);
+    font-family: Greycliff CF, var(--mantine-font-family);
     font-size: rem(62px);
     font-weight: 900;
     line-height: 1.1;

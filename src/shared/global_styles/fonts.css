@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'Montserrat';
-    src: url('/src/shared/Montserrat.ttf') format('ttf');
+    font-family: "Montserrat";
+    src: url("/src/shared/Montserrat.ttf") format("ttf");
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }

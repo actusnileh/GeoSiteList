@@ -1,20 +1,27 @@
-import { HeaderSearch, DataTable, ScrollToTop, CopyPlace } from "../../components";
+import { HeaderSearch, DataTable, ScrollToTop } from "../../components";
 import { FetchDomains } from "./api/fetchDomains";
 import { useEffect, useState } from "react";
 import { ApiResponseType } from "./api/apiResponseType";
 import { Skeleton } from "@mantine/core";
 
 export const HomePage = () => {
-    const [data, setData] = useState<ApiResponseType | undefined>({ items: [] });
-    const [loading, setLoading] = useState<boolean>(false);
-    const [domens, setDomenItem] = useState<string[]>([]);
+    const [data, setData] = useState<ApiResponseType | undefined>({
+        items: [],
+    });
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        setLoading(true);
         const fetchData = async () => {
-            const fetchedData = await FetchDomains();
-            if (fetchedData) {
-                setData(fetchedData);
+            try {
+                const fetchedData = await FetchDomains();
+                if (fetchedData) {
+                    setData(fetchedData);
+                }
+            } catch (err) {
+                setError("Error");
+                console.error(err);
+            } finally {
                 setLoading(false);
             }
         };
@@ -22,25 +29,19 @@ export const HomePage = () => {
         fetchData();
     }, []);
 
-    const setDomen = (domen: string) => {
-        setDomenItem((prevDomens) => {
-            if (!prevDomens.includes(domen)) {
-                return [...prevDomens, domen];
-            }
-            return prevDomens;
-        });
-    };
-
     return (
         <>
             <HeaderSearch />
             <Skeleton visible={loading} height="100vh">
-                {
-                    data && <>
-                        <CopyPlace domens={domens} />
-                        <DataTable data={data} setDomen={setDomen} />
-                    </>
-                }
+                {error ? (
+                    <div>{error}</div>
+                ) : (
+                    data && (
+                        <>
+                            <DataTable data={data} />
+                        </>
+                    )
+                )}
             </Skeleton>
             <ScrollToTop />
         </>

@@ -3,7 +3,9 @@ import { router } from "./Router";
 import { MantineProvider } from "@mantine/core";
 
 export const App = () => {
-    return <MantineProvider defaultColorScheme="dark" >
-        <RouterProvider router={router} />
-    </MantineProvider>
-}
+    return (
+        <MantineProvider defaultColorScheme="dark">
+            <RouterProvider router={router} />
+        </MantineProvider>
+    );
+};
