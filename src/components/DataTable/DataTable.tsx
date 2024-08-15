@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { ApiResponseType } from "../../pages/HomePage/api/apiResponseType";
 import {
     Grid,
@@ -11,9 +11,19 @@ import {
 } from "@mantine/core";
 import { IconDots } from "@tabler/icons-react";
 
-export const DataTable: FC<{ data: ApiResponseType }> = ({ data }) => {
+interface DataTableProps {
+    data: ApiResponseType;
+    onCheckboxChange: (key: string, checked: boolean) => void;
+    selectedKeys: Set<string>;
+}
+
+const DataTable: FC<DataTableProps> = ({
+    data,
+    onCheckboxChange,
+    selectedKeys,
+}) => {
     return (
-        <Grid grow gutter="xs" m={20} mt={70}>
+        <Grid grow gutter="xs" m={20} mt={0}>
             {Object.keys(data).map((key) => (
                 <Grid.Col key={key} span={3}>
                     <Box
@@ -25,7 +35,19 @@ export const DataTable: FC<{ data: ApiResponseType }> = ({ data }) => {
                         }}
                     >
                         <Flex justify="space-between" align="center">
-                            <Checkbox color="darkgray" label={key} c="white" />
+                            <Checkbox
+                                color="darkgray"
+                                label={key}
+                                c="white"
+                                size="md"
+                                checked={selectedKeys.has(key)}
+                                onChange={(event) =>
+                                    onCheckboxChange(
+                                        key,
+                                        event.currentTarget.checked
+                                    )
+                                }
+                            />
                             <Popover
                                 position="bottom"
                                 offset={8}
@@ -58,3 +80,5 @@ export const DataTable: FC<{ data: ApiResponseType }> = ({ data }) => {
         </Grid>
     );
 };
+
+export default memo(DataTable);

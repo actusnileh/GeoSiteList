@@ -1,10 +1,6 @@
-import { Autocomplete, Group, Burger, rem, Title, Flex } from "@mantine/core";
+import { Group, Burger, Title, Flex } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import {
-    IconSearch,
-    IconInfoSquareRounded,
-    IconBrandGithub,
-} from "@tabler/icons-react";
+import { IconInfoSquareRounded, IconBrandGithub } from "@tabler/icons-react";
 import classes from "./Header.module.css";
 
 const links = [
@@ -53,6 +49,7 @@ export function HeaderSearch() {
                     >
                         GeoSiteList
                     </Title>
+                    <Title order={6}>v0.1</Title>
                 </Group>
 
                 <Group>
@@ -64,18 +61,6 @@ export function HeaderSearch() {
                     >
                         {items}
                     </Group>
-                    <Autocomplete
-                        className={classes.search}
-                        placeholder="Search"
-                        leftSection={
-                            <IconSearch
-                                style={{ width: rem(16), height: rem(16) }}
-                                stroke={1.5}
-                            />
-                        }
-                        data={["Test"]}
-                        visibleFrom="xs"
-                    />
                 </Group>
             </div>
         </header>
