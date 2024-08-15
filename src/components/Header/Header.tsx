@@ -22,7 +22,7 @@ export function HeaderSearch() {
                 key={link.label}
                 href={link.link}
                 className={classes.link}
-                target={link.link == "/about" ? "" : "_blank"}
+                target={link.link == "GeoSiteList/about" ? "" : "_blank"}
             >
                 <Flex align="center" gap={5}>
                     <IconComponent />

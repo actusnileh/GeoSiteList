@@ -3,11 +3,11 @@ import { HomePage, AboutPage } from "../pages";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/GeoSiteList/",
         element: <HomePage />,
     },
     {
-        path: "/about",
+        path: "/GeoSiteList/about",
         element: <AboutPage />,
     },
 ]);
