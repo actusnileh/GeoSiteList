@@ -23,7 +23,7 @@ export function About() {
                         size="xl"
                         className={classes.control}
                         color="gray"
-                        onClick={() => (window.location.href = "/")}
+                        onClick={() => (window.location.href = "/GeoSiteList/")}
                     >
                         Main Page
                     </Button>
