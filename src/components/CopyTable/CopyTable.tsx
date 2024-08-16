@@ -17,9 +17,10 @@ export const CopyTable: FC<{ data: string }> = ({ data }) => {
                         placeholder="Selected domains will be added here.
 You can copy them and add them wherever needed."
                         readOnly
-                        radius="md"
+                        maxRows={4}
+                        minRows={4}
                         autosize
-                        minRows={3}
+                        radius="md"
                         style={{ width: "100%", maxWidth: "600px" }}
                     />
                 </Flex>
