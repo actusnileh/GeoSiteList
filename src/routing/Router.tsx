@@ -3,11 +3,11 @@ import { HomePage, AboutPage } from "../pages";
 
 export const router = createHashRouter([
     {
-        path: "/GeoSiteList/",
+        path: "/",
         element: <HomePage />,
     },
     {
-        path: "/GeoSiteList/about",
+        path: "/about",
         element: <AboutPage />,
     },
 ]);
