@@ -7,7 +7,7 @@ export const router = createBrowserRouter([
         element: <HomePage />,
     },
     {
-        path: "/GeoSiteList/about",
+        path: "/GeoSiteList/about/",
         element: <AboutPage />,
     },
 ]);
