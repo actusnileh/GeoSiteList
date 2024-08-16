@@ -7,10 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy" : "pnpm run build",
-    "deploy" : "gh-pages -d dist"
-  },
+    "preview": "vite preview"
+    },
   "dependencies": {
     "@mantine/carousel": "^7.12.0",
     "@mantine/core": "^7.12.0",

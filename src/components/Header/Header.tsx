@@ -4,7 +4,7 @@ import { IconInfoSquareRounded, IconBrandGithub } from "@tabler/icons-react";
 import classes from "./Header.module.css";
 
 const links = [
-    { link: "/about", label: "About", icon: IconInfoSquareRounded },
+    { link: "/GeoSiteList/about/", label: "About", icon: IconInfoSquareRounded },
     {
         link: "https://github.com/actusnileh/GeoSiteList",
         label: "GitHub",
@@ -22,7 +22,7 @@ export function HeaderSearch() {
                 key={link.label}
                 href={link.link}
                 className={classes.link}
-                target={link.link == "GeoSiteList/about" ? "" : "_blank"}
+                target={link.link == "/GeoSiteList/about/" ? "" : "_blank"}
             >
                 <Flex align="center" gap={5}>
                     <IconComponent />
@@ -45,7 +45,7 @@ export function HeaderSearch() {
                     <Title
                         style={{ cursor: "pointer" }}
                         order={3}
-                        onClick={() => (window.location.href = "/")}
+                        onClick={() => (window.location.href = "/GeoSiteList/")}
                     >
                         GeoSiteList
                     </Title>
