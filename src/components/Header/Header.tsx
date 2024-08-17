@@ -1,10 +1,14 @@
-import { Group, Burger, Title, Flex } from "@mantine/core";
+import { Group, Burger, Title, Flex, Paper } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconInfoSquareRounded, IconBrandGithub } from "@tabler/icons-react";
 import classes from "./Header.module.css";
 
 const links = [
-    { link: "/GeoSiteList/about/", label: "About", icon: IconInfoSquareRounded },
+    {
+        link: "/GeoSiteList/about/",
+        label: "About",
+        icon: IconInfoSquareRounded,
+    },
     {
         link: "https://github.com/actusnileh/GeoSiteList",
         label: "GitHub",
@@ -22,7 +26,7 @@ export function HeaderSearch() {
                 key={link.label}
                 href={link.link}
                 className={classes.link}
-                target={link.link == "/GeoSiteList/about/" ? "" : "_blank"}
+                target={link.link === "/GeoSiteList/about/" ? "" : "_blank"}
             >
                 <Flex align="center" gap={5}>
                     <IconComponent />
@@ -49,20 +53,20 @@ export function HeaderSearch() {
                     >
                         GeoSiteList
                     </Title>
-                    <Title order={6}>v0.1</Title>
+                    <Title order={6}>v0.2</Title>
                 </Group>
 
-                <Group>
-                    <Group
-                        ml={50}
-                        gap={5}
-                        className={classes.links}
-                        visibleFrom="sm"
-                    >
-                        {items}
-                    </Group>
+                <Group className={classes.links} visibleFrom="sm">
+                    {items}
                 </Group>
             </div>
+            {opened && (
+                <Paper className={classes.burgerMenu} shadow="md">
+                    <Group align="start">
+                        {items}
+                    </Group>
+                </Paper>
+            )}
         </header>
     );
 }

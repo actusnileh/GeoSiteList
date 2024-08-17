@@ -13,6 +13,7 @@ export const CopyTable: FC<{ data: string }> = ({ data }) => {
                 >
                     <Textarea
                         size="md"
+                        variant="filled"
                         value={data}
                         placeholder="Selected domains will be added here.
 You can copy them and add them wherever needed."
@@ -20,7 +21,7 @@ You can copy them and add them wherever needed."
                         maxRows={4}
                         minRows={4}
                         autosize
-                        radius="md"
+                        radius="lg"
                         style={{ width: "100%", maxWidth: "600px" }}
                     />
                 </Flex>

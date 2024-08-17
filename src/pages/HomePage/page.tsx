@@ -8,13 +8,11 @@ import {
 import { FetchDomains } from "./api/fetchDomains";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { ApiResponseType } from "./api/apiResponseType";
-import { Skeleton } from "@mantine/core";
 
 export const HomePage = () => {
     const [data, setData] = useState<ApiResponseType | undefined>({
         items: [],
     });
-    const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [selectedKeys, setSelectedKeys] = useState<Set<string>>(new Set());
 
@@ -28,8 +26,6 @@ export const HomePage = () => {
             } catch (err) {
                 setError("Error");
                 console.error(err);
-            } finally {
-                setLoading(false);
             }
         };
 
@@ -63,19 +59,17 @@ export const HomePage = () => {
         <>
             <HeaderSearch />
             <CopyTable data={selectedData} />
-            <Skeleton visible={loading} height="100vh">
-                {error ? (
-                    <div>{error}</div>
-                ) : (
-                    data && (
-                        <DataTable
-                            data={data}
-                            onCheckboxChange={handleCheckboxChange}
-                            selectedKeys={selectedKeys}
-                        />
-                    )
-                )}
-            </Skeleton>
+            {error ? (
+                <div>{error}</div>
+            ) : (
+                data && (
+                    <DataTable
+                        data={data}
+                        onCheckboxChange={handleCheckboxChange}
+                        selectedKeys={selectedKeys}
+                    />
+                )
+            )}
             <ScrollToTop />
         </>
     );
