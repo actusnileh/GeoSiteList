@@ -27,7 +27,7 @@ export function ScrollToTop({ scrollContainerRef }: ScrollToTopProps) {
                 scrollContainer.removeEventListener("scroll", handleScroll);
             };
         }
-    }, [scrollContainerRef]);
+    }, []);
 
     const handleClick = () => {
         if (scrollContainerRef.current) {
@@ -53,7 +53,7 @@ export function ScrollToTop({ scrollContainerRef }: ScrollToTopProps) {
                         padding: 0,
                     }}
                     onClick={handleClick}
-                    size="lm"
+                    size="md"
                     color="darkgray"
                 >
                     <IconChevronUp />

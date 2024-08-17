@@ -55,7 +55,7 @@ export function HeaderSearch() {
                         GeoSiteList
                     </Title>
                     <Title order={6}>
-                        v0.3
+                        v0.3.1
                     </Title>
                     <LastCommitDate />
                 </Group>

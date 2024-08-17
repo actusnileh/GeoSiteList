@@ -1,4 +1,4 @@
-import { HeaderSearch, ScrollToTop } from "../../components";
+import { HeaderSearch } from "../../components";
 import { About } from "../../components/About";
 
 export const AboutPage = () => {
@@ -6,7 +6,6 @@ export const AboutPage = () => {
         <>
             <HeaderSearch />
             <About />
-            <ScrollToTop />
         </>
     );
 };
