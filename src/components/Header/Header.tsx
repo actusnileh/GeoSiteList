@@ -2,6 +2,7 @@ import { Group, Burger, Title, Flex, Paper } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconInfoSquareRounded, IconBrandGithub } from "@tabler/icons-react";
 import classes from "./Header.module.css";
+import { LastCommitDate } from "../LastCommitDate";
 
 const links = [
     {
@@ -53,7 +54,10 @@ export function HeaderSearch() {
                     >
                         GeoSiteList
                     </Title>
-                    <Title order={6}>v0.2</Title>
+                    <Title order={6}>
+                        v0.2.1
+                    </Title>
+                    <LastCommitDate />
                 </Group>
 
                 <Group className={classes.links} visibleFrom="sm">
@@ -62,9 +66,7 @@ export function HeaderSearch() {
             </div>
             {opened && (
                 <Paper className={classes.burgerMenu} shadow="md">
-                    <Group align="start">
-                        {items}
-                    </Group>
+                    <Group align="start">{items}</Group>
                 </Paper>
             )}
         </header>
