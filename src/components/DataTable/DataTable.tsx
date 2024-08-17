@@ -11,6 +11,7 @@ import {
 } from "@mantine/core";
 import { IconDots } from "@tabler/icons-react";
 import { useVirtualizer } from "@tanstack/react-virtual";
+import { ScrollToTop } from "../ScrollToTop";
 
 interface DataTableProps {
     data: ApiResponseType;
@@ -42,7 +43,7 @@ const DataTable: FC<DataTableProps> = ({
             style={{
                 height: "98vh",
                 width: "100%",
-                overflow:"hidden",
+                overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
             }}
@@ -55,18 +56,17 @@ const DataTable: FC<DataTableProps> = ({
                 m={10}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.currentTarget.value)}
-                
             />
             <div
                 ref={parentRef}
                 style={{ flex: 1, overflow: "auto", position: "relative" }}
             >
+                <ScrollToTop scrollContainerRef={parentRef} />
                 <div
                     style={{
                         height: `${rowVirtualizer.getTotalSize()}px`,
                         width: "100%",
                         position: "relative",
-                        
                     }}
                 >
                     {rowVirtualizer.getVirtualItems().map((virtualRow) => {

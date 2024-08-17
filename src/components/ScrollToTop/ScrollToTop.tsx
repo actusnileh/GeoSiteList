@@ -1,28 +1,39 @@
-import { useScrollIntoView } from "@mantine/hooks";
-import { Button, Box } from "@mantine/core";
 import { useEffect, useState } from "react";
+import { Button } from "@mantine/core";
 import { IconChevronUp } from "@tabler/icons-react";
 
-export function ScrollToTop() {
+interface ScrollToTopProps {
+    scrollContainerRef: React.RefObject<HTMLDivElement>;
+}
+
+export function ScrollToTop({ scrollContainerRef }: ScrollToTopProps) {
     const [visible, setVisible] = useState(false);
-    const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
-        offset: 0,
-    });
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 300) {
-                setVisible(true);
-            } else {
-                setVisible(false);
+            if (scrollContainerRef.current) {
+                if (scrollContainerRef.current.scrollTop > 300) {
+                    setVisible(true);
+                } else {
+                    setVisible(false);
+                }
             }
         };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+        const scrollContainer = scrollContainerRef.current;
+        if (scrollContainer) {
+            scrollContainer.addEventListener("scroll", handleScroll);
+            return () => {
+                scrollContainer.removeEventListener("scroll", handleScroll);
+            };
+        }
+    }, [scrollContainerRef]);
+
+    const handleClick = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
 
     return (
         <>
@@ -41,14 +52,13 @@ export function ScrollToTop() {
                         justifyContent: "center",
                         padding: 0,
                     }}
-                    onClick={() => scrollIntoView({ alignment: "center" })}
+                    onClick={handleClick}
                     size="lm"
                     color="darkgray"
                 >
                     <IconChevronUp />
                 </Button>
             )}
-            <Box ref={targetRef} style={{ position: "absolute", top: 0 }} />
         </>
     );
 }

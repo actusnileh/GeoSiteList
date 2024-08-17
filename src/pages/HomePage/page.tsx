@@ -1,7 +1,6 @@
 import {
     HeaderSearch,
     DataTable,
-    ScrollToTop,
     CopyTable,
 } from "../../components";
 
@@ -70,7 +69,6 @@ export const HomePage = () => {
                     />
                 )
             )}
-            <ScrollToTop />
         </>
     );
 };

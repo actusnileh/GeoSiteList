@@ -27,8 +27,6 @@ GeoSiteList is a convenient and powerful search tool designed to help you quickl
 
 - Add "How to Use" Page
 
-- Implement "Copy to Clipboard" Button: Integrate a button that allows users to easily copy content to their clipboard.
-
 ## ⚙️ Dependencies
 
 Before you get started, ensure you have the following installed:
