@@ -15,11 +15,19 @@ GeoSiteList is a convenient and powerful search tool designed to help you quickl
 
 ## 📚 Table of Contents
 
+- [Roadmap](#-roadmap)
 - [Dependencies](#-dependencies)
 - [Installation](#-installation)
 - [Main Commands](#-main-commands)
 - [Contributing](#-contributing)
 - [License](#-license)
+
+
+## 📈 Roadmap
+
+- Add "How to Use" Page
+
+- Implement "Copy to Clipboard" Button: Integrate a button that allows users to easily copy content to their clipboard.
 
 ## ⚙️ Dependencies
 
