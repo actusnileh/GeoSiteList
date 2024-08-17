@@ -15,11 +15,11 @@ GeoSiteList is a convenient and powerful search tool designed to help you quickl
 
 ## 📚 Table of Contents
 
-- [Dependencies](#dependencies)
-- [Installation](#installation)
-- [Main Commands](#main-commands)
-- [Contributing](#contributing)
-- [License](#license)
+- [Dependencies](#Dependencies)
+- [Installation](#Installation)
+- [Main Commands](#Main Commands)
+- [Contributing](#Contributing)
+- [License](#License)
 
 ## ⚙️ Dependencies
 
